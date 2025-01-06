@@ -1,7 +1,11 @@
 import math
-
+from evaluate_tests import evaluate_tests
 
 def binary_search(l: list, searching_for):
+    if len(l) == 0:
+        print("List is empty")
+        return
+
     index = int(len(l) / 2) + 1
     step = 1
 
@@ -19,22 +23,26 @@ def binary_search(l: list, searching_for):
 
     return index
 
-
-test1 = {
-    "input" : {
+tests = [{
+    "input": {
         "l": [i for i in range(33)],
         "searching_for": 20
     },
     "output": 20
-}
-
-test2 = {
-    "input" : {
+    },
+    {
+    "input": {
         "l": [0, 0, 0, 1, 2, 3, 15, 16, 20, 30, 50, 60, 61, 88, 89, 130, 133, 134, 145],
         "searching_for": 3
     },
     "output": 5
-}
+    },
+    {
+    "input": {
+        "l": [],
+        "searching_for": 3
+    },
+    "output": None
+}]
 
-print(binary_search(**test1["input"]) == test1["output"])
-print(binary_search(**test2["input"]) == test2["output"])
+evaluate_tests(binary_search, tests)
