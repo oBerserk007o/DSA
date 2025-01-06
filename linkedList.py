@@ -86,7 +86,7 @@ class LinkedList:
             ...
 
     def clear(self):
-        for i in range(len(self)):
+        for _ in range(len(self)):
             self.pop()
 
 
